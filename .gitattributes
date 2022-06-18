@@ -1,0 +1,28 @@
+text=auto
+
+# source
+*.h     diff=c -text
+*.hpp   diff=cpp -text
+*.cpp   diff=cpp -text
+*.inl   diff=inl -text
+
+# libs
+*.dll   binary
+*.dylib binary
+*.so    binary
+*.lib   binary
+*.lai   binary
+*.la    binary
+*.a     binary
+
+# images
+*.png binary
+*.jpg binary
+*.gif binary
+
+# Project folder
+**/res/** filter=lfs binary
+Docs/** filter=lfs binary
+
+# Doxygen
+docgen filter=lfs binary eol=lf

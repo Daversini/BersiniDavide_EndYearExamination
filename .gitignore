@@ -1,0 +1,19 @@
+#==========================================#
+#           CREATED BY DAVERSINI           #
+#==========================================#
+
+# Visual Studio
+.vs
+*.user
+*.suo
+*.filter
+*.vcxproj.filters
+*.vcxproj
+*.sln
+
+# Project Binaries-Intermediates
+[Bb]in
+[Ii]nt
+
+# Project Documentation
+[Dd]ocs
