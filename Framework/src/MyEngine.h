@@ -1,4 +1,4 @@
 #pragma once
 
-// Include directories
+// Core Project Files
 #include "MyEngine/Core/Application.h"

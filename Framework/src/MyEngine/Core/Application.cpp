@@ -1,4 +1,7 @@
-#include "Application.h"
+#include "MyEngine/Core/Application.h"
+
+#include <iostream>
+#include <SFML/Window.hpp>
 
 namespace MyEngine {
 
@@ -11,6 +14,8 @@ namespace MyEngine {
 
 	void Application::Run()
 	{
+		//TESTING
+		sf::Window window(sf::VideoMode(800, 600), "My Game");
 		std::cout << "Hello World!";
 		std::cin.get();
 	}

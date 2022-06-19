@@ -1,12 +1,12 @@
 #pragma once
 
-#include <iostream>
+#include "MyEngine/Core/ProjectExport.h"
 
 int main();
 
 namespace MyEngine {
 
-	class Application
+	class ENGINEAPI Application
 	{
 	public:
 		// Application constructor and destructor

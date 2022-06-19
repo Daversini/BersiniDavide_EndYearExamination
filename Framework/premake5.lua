@@ -14,33 +14,67 @@ project "Framework"
         "src/**.cpp"
     }
 
+    -- Preprocessor directives
+    defines
+    {
+        "SFML_STATIC",
+        "LIBRARY_EXPORTS"
+    }
+
     -- List of Include directories
     includedirs
     {
-        "src",
+        "%{prj.location}/src",
         "%{IncludeDir.SFML}"
     }
 
-    -- List of Libraries to link against
+    -- Required libraries for SFML static linking
     links
     {
-        "%{Library.SFMLAudio}",
-        "%{Library.SFMLGraphics}",
-        "%{Library.SFMLMain}",
-        "%{Library.SFMLSystem}",
-        "%{Library.SFMLWindow}"
+        "gdi32",
+        "winmm",
+
+        "opengl32",
+
+        "%{LibraryDir.SFML}/freetype.lib",
+        "%{LibraryDir.SFML}/openal32.lib",
+        "%{LibraryDir.SFML}/flac.lib",
+        "%{LibraryDir.SFML}/vorbisenc.lib",
+        "%{LibraryDir.SFML}/vorbisfile.lib",
+        "%{LibraryDir.SFML}/vorbis.lib",
+        "%{LibraryDir.SFML}/ogg.lib"
     }
 
+    postbuildmessage "Copying Framework depencencies into project..."
     postbuildcommands
     {
         "{COPY} %{wks.location}/Bin/" .. outputdir .. "/Framework/*.dll %{wks.location}/Bin/" .. outputdir .. "/Sandbox/"
     }
-    postbuildmessage "Copying depencencies..."
 
     filter "configurations:Debug"
         defines "DEBUG"
         symbols "On"
+        
+        links
+        {
+            -- SFML libraries on Debug configuration
+            "%{LibDebug.SFMLSystem}",
+            "%{LibDebug.SFMLWindow}",
+            "%{LibDebug.SFMLGraphics}",
+            "%{LibDebug.SFMLAudio}",
+            "%{LibDebug.SFMLMain}"
+        }
 
     filter "configurations:Release"
         defines "RELEASE"
         optimize "On"
+
+        links
+        {
+            -- SFML libraries on Release configuration
+            "%{LibRelease.SFMLSystem}",
+            "%{LibRelease.SFMLWindow}",
+            "%{LibRelease.SFMLGraphics}",
+            "%{LibRelease.SFMLAudio}",
+            "%{LibRelease.SFMLMain}"
+        }

@@ -21,7 +21,7 @@ project "Sandbox"
     -- Project linking
     links
     {
-        "Framework",
+        "Framework"
     }
 
     filter "configurations:Debug"
