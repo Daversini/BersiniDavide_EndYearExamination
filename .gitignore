@@ -13,7 +13,10 @@
 
 # Project Binaries-Intermediates
 [Bb]in
-[Ii]nt
+[Bb]in-[Ii]nt
 
 # Project Documentation
 [Dd]ocs
+
+# Other
+*.bat

@@ -12,5 +12,6 @@ namespace MyEngine {
 	void Application::Run()
 	{
 		std::cout << "Hello World!";
+		std::cin.get();
 	}
 }
