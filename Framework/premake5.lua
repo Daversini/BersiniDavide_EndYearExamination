@@ -3,11 +3,13 @@ project "Framework"
     language "C++"
     cppdialect "C++17"
     location "%{wks.location}/Framework"
-    pchheader "pch.h"
-	pchsource "src/pch.cpp"
 
     targetdir ("%{wks.location}/Bin/" .. outputdir .. "/%{prj.name}")
     objdir ("%{wks.location}/Bin-Int/" .. outputdir .. "/%{prj.name}")
+
+    -- Pre-compiled header declaration
+    pchheader "pch.h"
+	pchsource "src/pch.cpp"
 
     -- Add all C++ files from the "src/" directory and any subdirectories
     files
@@ -33,11 +35,14 @@ project "Framework"
     -- Required libraries for SFML static linking
     links
     {
+        -- Windows
         "gdi32",
         "winmm",
 
+        -- OpenGL
         "opengl32",
 
+        -- SFML
         "%{LibraryDir.SFML}/freetype.lib",
         "%{LibraryDir.SFML}/openal32.lib",
         "%{LibraryDir.SFML}/flac.lib",
@@ -50,7 +55,7 @@ project "Framework"
     postbuildmessage "Copying Framework depencencies into project..."
     postbuildcommands
     {
-        "{COPY} %{wks.location}/Bin/" .. outputdir .. "/Framework/*.dll %{wks.location}/Bin/" .. outputdir .. "/Sandbox/"
+        "{COPY} %{cfg.targetdir}/*.dll %{wks.location}/Bin/" .. outputdir .. "/Sandbox/"
     }
 
     filter "configurations:Debug"

@@ -5,6 +5,7 @@ workspace "BersiniDavide_EndYearExamination"
     architecture "x86_64"
     startproject "Sandbox"
 
+    -- Solution configurations
     configurations
     {
         "Debug",

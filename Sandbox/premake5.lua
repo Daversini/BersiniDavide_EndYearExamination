@@ -8,6 +8,7 @@ project "Sandbox"
     targetdir ("%{wks.location}/Bin/" .. outputdir .. "/%{prj.name}")
     objdir ("%{wks.location}/Bin-Int/" .. outputdir .. "/%{prj.name}")
 
+    -- Add all C++ files from the "src/" directory and any subdirectories and "resource script" file
     files
     {
         "src/**.h",
@@ -15,6 +16,7 @@ project "Sandbox"
         "res/resources.rc"
     }
 
+    -- Include Framework directory
     includedirs
     {
         "%{wks.location}/Framework/src",
