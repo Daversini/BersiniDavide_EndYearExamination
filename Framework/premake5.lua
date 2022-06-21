@@ -9,7 +9,7 @@ project "Framework"
 
     -- Pre-compiled header declaration
     pchheader "pch.h"
-	pchsource "src/pch.cpp"
+    pchsource "src/pch.cpp"
 
     -- Add all C++ files from the "src/" directory and any subdirectories
     files
