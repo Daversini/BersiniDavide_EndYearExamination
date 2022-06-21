@@ -19,10 +19,11 @@ text=auto
 *.png binary
 *.jpg binary
 *.gif binary
+*.ico binary
 
 # Project folder
 **/res/** filter=lfs binary
 Docs/** filter=lfs binary
 
 # Doxygen
-docgen filter=lfs binary eol=lf
+Documentation-settings filter=lfs binary eol=lf

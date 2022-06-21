@@ -3,6 +3,7 @@ project "Sandbox"
     language "C++"
     cppdialect "C++17"
     location "%{wks.location}/Sandbox"
+    icon "%{prj.location}/res/icon.ico"
 
     targetdir ("%{wks.location}/Bin/" .. outputdir .. "/%{prj.name}")
     objdir ("%{wks.location}/Bin-Int/" .. outputdir .. "/%{prj.name}")
@@ -10,7 +11,8 @@ project "Sandbox"
     files
     {
         "src/**.h",
-        "src/**.cpp"
+        "src/**.cpp",
+        "res/resources.rc"
     }
 
     includedirs
