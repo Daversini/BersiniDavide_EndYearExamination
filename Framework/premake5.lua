@@ -3,6 +3,8 @@ project "Framework"
     language "C++"
     cppdialect "C++17"
     location "%{wks.location}/Framework"
+    pchheader "pch.h"
+	pchsource "src/pch.cpp"
 
     targetdir ("%{wks.location}/Bin/" .. outputdir .. "/%{prj.name}")
     objdir ("%{wks.location}/Bin-Int/" .. outputdir .. "/%{prj.name}")

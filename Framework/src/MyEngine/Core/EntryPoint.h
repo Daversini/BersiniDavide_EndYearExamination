@@ -2,7 +2,7 @@
 
 #include "Application.h"
 
-//extern MyEngine::Application* MyEngine::CreateApplication();
+extern MyEngine::Application* MyEngine::CreateApplication();
 
 int main()
 {

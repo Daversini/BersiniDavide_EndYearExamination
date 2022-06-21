@@ -1,6 +1,6 @@
+#include "pch.h"
 #include "MyEngine/Core/Application.h"
 
-#include <iostream>
 #include <SFML/Window.hpp>
 
 namespace MyEngine {
