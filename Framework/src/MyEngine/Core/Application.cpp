@@ -52,9 +52,14 @@ namespace MyEngine {
 				fixedUpdate();
 				lag -= msForFixedUpdate;
 			}
+
 			update();
+			draw();
+
 			sf::sleep(sf::seconds((1.0f / maxFPS)));
 		}
+
+		m_layer->onDetach();
 	}
 
 	void Application::updateGameTime()

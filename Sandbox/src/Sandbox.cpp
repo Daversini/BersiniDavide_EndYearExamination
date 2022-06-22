@@ -13,7 +13,7 @@ public:
 		pushLayer(new SandboxLayer);
 	}
 
-	~Sandbox() {}
+	~Sandbox() { delete m_Window; }
 };
 
 MyEngine::Application* MyEngine::createApplication()

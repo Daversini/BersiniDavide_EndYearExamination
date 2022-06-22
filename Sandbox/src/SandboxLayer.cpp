@@ -8,20 +8,20 @@ SandboxLayer::SandboxLayer()
 
 void SandboxLayer::onAttach()
 {
-
+	//TODO
 }
 
 void SandboxLayer::onDetach()
 {
-
+	std::cout << "\n\nQuitting application...\n\n";
 }
 
 void SandboxLayer::onUpdate(float deltaTime)
 {
-	
+	//TODO
 }
 
 void SandboxLayer::onEvent()
 {
-
+	//TODO
 }
