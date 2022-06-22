@@ -20,6 +20,7 @@ project "Sandbox"
     includedirs
     {
         "%{wks.location}/Framework/src",
+        "%{IncludeDir.SFML}"
     }
 
     -- Project linking

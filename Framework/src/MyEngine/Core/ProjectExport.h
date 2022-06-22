@@ -1,7 +1,10 @@
-#pragma once
+#ifndef PROJECT_EXPORT_H
+#define PROJECT_EXPORT_H
 
 #ifdef LIBRARY_EXPORTS
-#define ENGINEAPI __declspec(dllexport)
+#define MYENGINEAPI __declspec(dllexport)
 #else
-#define ENGINEAPI __declspec(dllimport)
+#define MYENGINEAPI __declspec(dllimport)
 #endif
+
+#endif // !PROJECT_EXPORT_H
