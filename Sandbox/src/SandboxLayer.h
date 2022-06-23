@@ -16,4 +16,4 @@ public:
 	void onEvent() override;
 };
 
-#endif // !SANDBOX_GAME_LAYER_H
+#endif // !SANDBOX_LAYER_H

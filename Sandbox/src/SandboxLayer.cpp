@@ -1,6 +1,6 @@
-#include "SandboxLayer.h"
+#include "pch.h"
 
-#include <iostream>
+#include "SandboxLayer.h"
 
 SandboxLayer::SandboxLayer()
 	: Layer("Sandbox")
@@ -8,12 +8,12 @@ SandboxLayer::SandboxLayer()
 
 void SandboxLayer::onAttach()
 {
-	//TODO
+	std::cout << "\n\nStarting Game...\n\n";
 }
 
 void SandboxLayer::onDetach()
 {
-	std::cout << "\n\nQuitting application...\n\n";
+	std::cout << "\n\nQuitting Game...\n\n";
 }
 
 void SandboxLayer::onUpdate(float deltaTime)

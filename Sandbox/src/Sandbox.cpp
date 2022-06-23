@@ -9,7 +9,13 @@ public:
 	Sandbox(float windowWidth, float windowHeight, const char* title)
 		: Application(windowWidth, windowHeight, title)
 	{
-		setMaxFPS(60);
+		// Game Settings
+		fixedUpdateEnabled = true;
+		fpsLimitEnabled = true;
+		maxFPS = 60;
+		SEC_PER_FIXED_UPDATE = 2;
+
+		// Push SandboxLayer to Application
 		pushLayer(new SandboxLayer);
 	}
 

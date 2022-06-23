@@ -10,22 +10,16 @@ namespace MyEngine {
 		maxFPS(0),
 		windowWidth(width),
 		windowHeight(height),
-		windowTitle(title)
+		windowTitle(title),
+		lag(0)
 	{
-		initApp();
+		createWindow();
 	}
 
 	void Application::pushLayer(Layer* layer)
 	{
 		m_layer = layer;
 		layer->onAttach();
-	}
-
-	void Application::initApp()
-	{
-		createWindow();
-
-		//TODO
 	}
 
 	void Application::createWindow()
@@ -44,19 +38,22 @@ namespace MyEngine {
 		while (m_Window->isOpen())
 		{
 			updateGameTime();
-			std::cout << "FPS: " << getFrameRate() << std::endl;
 			processWindowEvents();
 
-			while (lag < msForFixedUpdate)
+			if (fixedUpdateEnabled)
 			{
-				fixedUpdate();
-				lag -= msForFixedUpdate;
+				while (lag >= SEC_PER_FIXED_UPDATE)
+				{
+					fixedUpdate();
+					lag -= SEC_PER_FIXED_UPDATE;
+				}
 			}
 
 			update();
-			draw();
+			render();
 
-			sf::sleep(sf::seconds((1.0f / maxFPS)));
+			if (fpsLimitEnabled)
+				sf::sleep(sf::seconds((1.0f / maxFPS)));
 		}
 
 		m_layer->onDetach();
@@ -65,9 +62,9 @@ namespace MyEngine {
 	void Application::updateGameTime()
 	{
 		currentTime = time.getCurrentTime();
-		elapsedTime = Timer::calculateElapsedTime(currentTime.asSeconds(), lastTime.asSeconds());
-		lag += elapsedTime;
+		deltaTime = Timer::calculateElapsedTime(currentTime.asSeconds(), lastTime.asSeconds());
 		lastTime = currentTime;
+		lag += deltaTime;
 	}
 
 	void Application::processWindowEvents()
@@ -84,17 +81,23 @@ namespace MyEngine {
 
 	void Application::fixedUpdate()
 	{
+		std::cout << "\n\n\n\n\n\nFIXED UPDATE\n\n\n\n\n\n";
+
 		//TODO
 	}
 
 	void Application::update()
 	{
-		m_layer->onUpdate(elapsedTime);
+		m_layer->onUpdate(deltaTime);
+
+		std::cout << "Frames per sec:	" << getFrameRate() << "\n";
+		std::cout << "Current Lag	" << lag << "\n";
+		std::cout << "Delta Time:	" << deltaTime << "\n\n";
 
 		//TODO
 	}
 
-	void Application::draw()
+	void Application::render()
 	{
 		m_Window->clear(sf::Color::Black);
 

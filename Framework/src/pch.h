@@ -1,7 +1,8 @@
-#pragma once
-
-// See github.com/skypjack/entt/wiki/Frequently-Asked-Questions#warning-c4003-the-min-the-max-and-the-macro
-#define NOMINMAX
+#ifndef PCH_H
+#define PCH_H
 
 // Headers to pre-compile
 #include <iostream>
+#include <vector>
+
+#endif // !PCH_H
