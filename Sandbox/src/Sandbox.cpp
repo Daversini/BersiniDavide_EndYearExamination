@@ -11,9 +11,9 @@ public:
 	{
 		// Game Settings
 		fixedUpdateEnabled = true;
+		SEC_PER_FIXED_UPDATE = 2;
 		fpsLimitEnabled = true;
 		maxFPS = 60;
-		SEC_PER_FIXED_UPDATE = 2;
 
 		// Push SandboxLayer to Application
 		pushLayer(new SandboxLayer);

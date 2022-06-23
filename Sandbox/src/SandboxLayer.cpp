@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "MyEngine/Utils/pch.h"
 
 #include "SandboxLayer.h"
 
@@ -9,6 +9,8 @@ SandboxLayer::SandboxLayer()
 void SandboxLayer::onAttach()
 {
 	std::cout << "\n\nStarting Game...\n\n";
+
+	//TODO: Return allEntities
 }
 
 void SandboxLayer::onDetach()

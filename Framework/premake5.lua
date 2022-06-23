@@ -8,8 +8,8 @@ project "Framework"
     objdir ("%{wks.location}/Bin-Int/" .. outputdir .. "/%{prj.name}")
 
     -- Pre-compiled header declaration
-    pchheader "pch.h"
-    pchsource "src/pch.cpp"
+    pchheader "MyEngine/Utils/pch.h"
+    pchsource "src/MyEngine/Utils/pch.cpp"
 
     -- Add all C++ files from the "src/" directory and any subdirectories
     files
