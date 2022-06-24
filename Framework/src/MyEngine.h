@@ -8,6 +8,10 @@
 
 // Scene Files
 #include "MyEngine/Scene/Object.h"
-#include "MyEngine/Scene/Component.h"
+#include "MyEngine/Scene/ITickable.h"
+
+#include "MyEngine/Scene/Components/Component.h"
+
+#include "MyEngine/Scene/GameObjects/GameObject.h"
 
 #endif // !MYENGINE_H

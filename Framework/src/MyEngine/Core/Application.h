@@ -1,12 +1,14 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
+#include <MyEngine/Utils/pch.h>
 #include <SFML/Graphics.hpp>
 
 #include "MyEngine/Utils/ProjectExport.h"
 
 #include "MyEngine/Core/Timer.h"
 #include "MyEngine/Core/Layer.h"
+#include "MyEngine/Scene/GameObjects/GameObject.h"
 
 int main();
 
