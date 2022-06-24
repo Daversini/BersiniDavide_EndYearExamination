@@ -11,9 +11,6 @@
 *.vcxproj
 *.sln
 
-# Project Binaries-Intermediates
+# Project Folders
 [Bb]in
-[Ii]nt
-
-# Project Documentation
-[Dd]ocs
+[Bb]in-[Ii]nt
