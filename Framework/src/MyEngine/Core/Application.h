@@ -24,7 +24,7 @@ namespace MyEngine {
 		/// <param name="height">Window height</param>
 		/// <param name="title">Window title</param>
 		/// <param name="maxFPS">Max fps in game</param>
-		Application(float width, float height, const char* title, int maxFPS);
+		Application(float width, float height, const char* title);
 		virtual ~Application() {}
 
 	public:
@@ -45,6 +45,10 @@ namespace MyEngine {
 		/// </summary>
 		/// <returns>Total frames</returns>
 		unsigned getFrameRate()const { return 1.0f / deltaTime; }
+
+		void enableFPSLimit() { fpsLimitEnabled = true; }
+
+		void setMaxFPS(float maxfps) { maxFPS = maxfps; avgFPS = maxFPS; }
 
 	private:
 		/// <summary>
@@ -92,7 +96,7 @@ namespace MyEngine {
 		/// </summary>
 		void trackFPS();
 
-	protected:
+	private:
 		// Game Window
 		sf::RenderWindow* m_Window;
 		float windowWidth, windowHeight;
@@ -105,16 +109,15 @@ namespace MyEngine {
 		Timer time;
 		float deltaTime;
 		float lag;
-		unsigned maxFPS;
-		unsigned avgFPS;
+		unsigned maxFPS, avgFPS;
 		float movAvgAlphaFPS;
 		float SEC_PER_FIXED_UPDATE;
 		bool fpsLimitEnabled;
 
-	private:
 		static Application* m_istance;
 		Layer* m_layer;
 		friend int ::main();
+		std::vector<GameObject*> allEntities;
 	};
 
 	/// <summary>

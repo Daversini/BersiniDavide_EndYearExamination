@@ -5,17 +5,18 @@ namespace MyEngine {
 
 	Application* Application::m_istance = nullptr;
 
-	Application::Application(float width, float height, const char* title, int maxFPS) :
+	Application::Application(float width, float height, const char* title) :
 		m_Window(nullptr),
 		windowWidth(width),
 		windowHeight(height),
 		windowTitle(title),
 
 		lag(0),
-		maxFPS(maxFPS),
-		avgFPS(maxFPS),
+		maxFPS(0),
+		avgFPS(0),
 		movAvgAlphaFPS(0.4f),
-		SEC_PER_FIXED_UPDATE(0.5)
+		SEC_PER_FIXED_UPDATE(0.5),
+		fpsLimitEnabled(false)
 	{
 		initialize();
 	}

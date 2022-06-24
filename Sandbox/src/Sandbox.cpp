@@ -6,21 +6,21 @@
 class Sandbox : public MyEngine::Application
 {
 public:
-	Sandbox(float windowWidth, float windowHeight, const char* title, int maxFPS)
-		: Application(windowWidth, windowHeight, title, maxFPS)
+	Sandbox(float windowWidth, float windowHeight, const char* title)
+		: Application(windowWidth, windowHeight, title)
 	{
 		// Game Settings
-		SEC_PER_FIXED_UPDATE = 0.5;
-		fpsLimitEnabled = true;
+		enableFPSLimit();
+		setMaxFPS(60);
 
 		// Push SandboxLayer to Application
 		pushLayer(new SandboxLayer);
 	}
 
-	~Sandbox() { delete m_Window; }
+	~Sandbox() {}
 };
 
 MyEngine::Application* MyEngine::createApplication()
 {
-	return new Sandbox(1920, 1080, "Sandbox", 60);
+	return new Sandbox(1920, 1080, "Sandbox");
 }
