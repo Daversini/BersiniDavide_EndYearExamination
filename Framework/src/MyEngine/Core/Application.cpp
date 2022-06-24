@@ -5,21 +5,44 @@ namespace MyEngine {
 
 	Application* Application::m_istance = nullptr;
 
-	Application::Application(float width, float height, const char* title) :
+	Application::Application(float width, float height, const char* title, int maxFPS) :
 		m_Window(nullptr),
-		maxFPS(0),
 		windowWidth(width),
 		windowHeight(height),
 		windowTitle(title),
-		lag(0)
+
+		lag(0),
+		maxFPS(maxFPS),
+		avgFPS(maxFPS),
+		movAvgAlphaFPS(0.4f),
+		SEC_PER_FIXED_UPDATE(0.5)
 	{
-		createWindow();
+		initialize();
 	}
 
 	void Application::pushLayer(Layer* layer)
 	{
 		m_layer = layer;
 		layer->onAttach();
+	}
+
+	void Application::initialize()
+	{
+		createWindow();
+
+		if (!font.loadFromFile("../Framework/res/arial.ttf"))
+		{
+			if (!font.loadFromFile("arial.ttf"))
+			{
+				std::cout << "Failed to load font!\n";
+				system("pause");
+			}
+		}
+
+		windowTextFPS.setFont(font);
+		windowTextFPS.setCharacterSize(24);
+		windowTextFPS.setFillColor(sf::Color::White);
+		windowTextFPS.move(10.0f, 10.0f);
 	}
 
 	void Application::createWindow()
@@ -35,18 +58,16 @@ namespace MyEngine {
 	void Application::run()
 	{
 		lastTime = time.getCurrentTime();
+
 		while (m_Window->isOpen())
 		{
 			updateGameTime();
 			processWindowEvents();
 
-			if (fixedUpdateEnabled)
+			while (lag >= SEC_PER_FIXED_UPDATE)
 			{
-				while (lag >= SEC_PER_FIXED_UPDATE)
-				{
-					fixedUpdate();
-					lag -= SEC_PER_FIXED_UPDATE;
-				}
+				fixedUpdate();
+				lag -= SEC_PER_FIXED_UPDATE;
 			}
 
 			update();
@@ -81,18 +102,14 @@ namespace MyEngine {
 
 	void Application::fixedUpdate()
 	{
-		std::cout << "\n\n\n\n\n\nFIXED UPDATE\n\n\n\n\n\n";
+		std::cout << "\nFIXED UPDATE\n";
 
-		//TODO
+		trackFPS();
 	}
 
 	void Application::update()
 	{
 		m_layer->onUpdate(deltaTime);
-
-		std::cout << "Frames per sec:	" << getFrameRate() << "\n";
-		std::cout << "Current Lag	" << lag << "\n";
-		std::cout << "Delta Time:	" << deltaTime << "\n\n";
 
 		//TODO
 	}
@@ -101,8 +118,21 @@ namespace MyEngine {
 	{
 		m_Window->clear(sf::Color::Black);
 
-		//TODO
+		m_Window->draw(windowTextFPS);
 
 		m_Window->display();
+	}
+
+	void Application::trackFPS()
+	{
+		//std::cout << "Frames per sec:	" << getFrameRate() << "\n";
+		//std::cout << "Current Lag	" << lag << "\n";
+		//std::cout << "Delta Time:	" << deltaTime << "\n\n";
+
+		avgFPS = movAvgAlphaFPS * avgFPS + (1.0 - movAvgAlphaFPS) * getFrameRate();
+
+		std::ostringstream FPSString;
+		FPSString << "FPS: " << avgFPS;
+		windowTextFPS.setString(FPSString.str());
 	}
 }

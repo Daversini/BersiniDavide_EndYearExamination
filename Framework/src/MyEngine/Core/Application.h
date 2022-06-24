@@ -21,16 +21,17 @@ namespace MyEngine {
 		/// <param name="width">Window width</param>
 		/// <param name="height">Window height</param>
 		/// <param name="title">Window title</param>
-		Application(float width, float height, const char* title);
+		/// <param name="maxFPS">Max fps in game</param>
+		Application(float width, float height, const char* title, int maxFPS);
 		virtual ~Application() {}
 
+	public:
 		/// <summary>
 		/// Push a new Layer into the Application
 		/// </summary>
 		/// <param name="layer">The game layer</param>
 		void pushLayer(Layer* layer);
 
-	public:
 		/// <summary>
 		/// Get application istance
 		/// </summary>
@@ -44,6 +45,11 @@ namespace MyEngine {
 		unsigned getFrameRate()const { return 1.0f / deltaTime; }
 
 	private:
+		/// <summary>
+		/// Initialize application
+		/// </summary>
+		void initialize();
+
 		/// <summary>
 		/// Window app creation
 		/// </summary>
@@ -65,7 +71,7 @@ namespace MyEngine {
 		void processWindowEvents();
 
 		/// <summary>
-		/// Fixed update (by default called every 20 seconds)
+		/// Fixed update (by default called every 0.5 seconds)
 		/// </summary>
 		void fixedUpdate();
 
@@ -79,11 +85,18 @@ namespace MyEngine {
 		/// </summary>
 		void render();
 
+		/// <summary>
+		/// Calculates the avarage FPS and prints them to screen
+		/// </summary>
+		void trackFPS();
+
 	protected:
 		// Game Window
 		sf::RenderWindow* m_Window;
 		float windowWidth, windowHeight;
 		const char* windowTitle;
+		sf::Text windowTextFPS;
+		sf::Font font;
 
 		// Game Loop timings
 		sf::Time lastTime, currentTime;
@@ -91,9 +104,10 @@ namespace MyEngine {
 		float deltaTime;
 		float lag;
 		unsigned maxFPS;
+		unsigned avgFPS;
+		float movAvgAlphaFPS;
+		float SEC_PER_FIXED_UPDATE;
 		bool fpsLimitEnabled;
-		bool fixedUpdateEnabled;
-		float SEC_PER_FIXED_UPDATE = 20;
 
 	private:
 		static Application* m_istance;

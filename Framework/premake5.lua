@@ -52,6 +52,12 @@ project "Framework"
         "%{LibraryDir.SFML}/ogg.lib"
     }
 
+    prebuildmessage "Copying resources..."
+    prebuildcommands
+    {
+        "{COPY} res/*.ttf %{wks.location}/Bin/" .. outputdir .. "/Sandbox/"
+    }
+
     postbuildmessage "Copying Framework depencencies into project..."
     postbuildcommands
     {
