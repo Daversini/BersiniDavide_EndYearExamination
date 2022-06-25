@@ -6,8 +6,7 @@
 class Sandbox : public MyEngine::Application
 {
 public:
-	Sandbox(float windowWidth, float windowHeight, const char* title)
-		: Application(windowWidth, windowHeight, title)
+	Sandbox() : Application(1920, 1080, "Sandbox")
 	{
 		// Game Settings
 		enableFPSLimit();
@@ -22,5 +21,5 @@ public:
 
 MyEngine::Application* MyEngine::createApplication()
 {
-	return new Sandbox(1920, 1080, "Sandbox");
+	return new Sandbox;
 }

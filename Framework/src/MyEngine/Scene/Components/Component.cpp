@@ -4,12 +4,12 @@
 
 namespace MyEngine {
 
-	void Component::on_update(const float deltaTime)
+	void Component::onUpdate(const float deltaTime)
 	{
 
 	}
 
-	void Component::on_fixed_update(const float deltaTime)
+	void Component::onFixedUpdate(const float deltaTime)
 	{
 
 	}

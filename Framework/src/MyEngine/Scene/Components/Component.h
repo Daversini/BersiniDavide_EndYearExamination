@@ -18,12 +18,12 @@ namespace MyEngine {
 		Component(const std::string name, const bool is_active = true) : Object(name, is_active) {}
 		virtual ~Component() = default;
 
-		[[nodiscard]] GameObject* get_owner()const { return owner; }
+		[[nodiscard]] GameObject* getOwner()const { return owner; }
 
 	protected:
 		// Inherited via ITickable
-		virtual void on_update(const float deltaTime) override;
-		virtual void on_fixed_update(const float deltaTime) override;
+		virtual void onUpdate(const float deltaTime) override;
+		virtual void onFixedUpdate(const float deltaTime) override;
 
 	private:
 		GameObject* owner = nullptr;

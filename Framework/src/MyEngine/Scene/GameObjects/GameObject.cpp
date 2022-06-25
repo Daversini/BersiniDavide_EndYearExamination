@@ -16,31 +16,31 @@ namespace MyEngine {
 		this->components = components;
 	}
 
-	void GameObject::add_component(Component* component)
+	void GameObject::addComponent(Component* component)
 	{
 		component->owner = this;
 		components.push_back(component);
 	}
 
-	void GameObject::remove_component(Component* component)
+	void GameObject::removeComponent(Component* component)
 	{
 		//TODO: Fix component erase
 		//components.erase();
 	}
 
-	void GameObject::on_fixed_update(const float deltaTime)
+	void GameObject::onFixedUpdate(const float deltaTime)
 	{
 		for (auto item : components)
 		{
-			if (item->is_active && item->tick_enabled()) { item->on_fixed_update(deltaTime); }
+			if (item->is_active && item->tickEnabled()) { item->onFixedUpdate(deltaTime); }
 		}
 	}
 
-	void GameObject::on_update(const float deltaTime)
+	void GameObject::onUpdate(const float deltaTime)
 	{
 		for (auto item : components)
 		{
-			if (item->is_active && item->tick_enabled()) { item->on_update(deltaTime); }
+			if (item->is_active && item->tickEnabled()) { item->onUpdate(deltaTime); }
 		}
 	}
 }

@@ -35,13 +35,13 @@ namespace MyEngine {
 		/// Add a component to a Game object
 		/// </summary>
 		/// <param name="component">The component to add</param>
-		void add_component(Component* component);
+		void addComponent(Component* component);
 
 		/// <summary>
 		/// Remove a component from a Game object
 		/// </summary>
 		/// <param name="component">The component to remove</param>
-		void remove_component(Component* component);
+		void removeComponent(Component* component);
 
 		/// <summary>
 		/// Get the first component of a given type from the Game object attached components
@@ -49,7 +49,7 @@ namespace MyEngine {
 		/// <typeparam name="T">The component to get</typeparam>
 		/// <typeparam name="Components">Component class</typeparam>
 		/// <returns></returns>
-		template<class T, class = Component>  T* get_component()const
+		template<class T, class = Component>  T* getComponent()const
 		{
 			if (components.size() == 0) return nullptr;
 
@@ -68,7 +68,7 @@ namespace MyEngine {
 		/// </summary>
 		/// <typeparam name="T">All component types</typeparam>
 		/// <returns></returns>
-		template<class T> std::vector<T*> get_components()const
+		template<class T> std::vector<T*> getComponents()const
 		{
 			std::vector<T*> result;
 
@@ -86,8 +86,8 @@ namespace MyEngine {
 
 	protected:
 		// Inherited via ITickable
-		virtual void on_fixed_update(const float deltaTime) override;
-		virtual void on_update(const float deltaTime) override;
+		virtual void onFixedUpdate(const float deltaTime) override;
+		virtual void onUpdate(const float deltaTime) override;
 
 	private:
 		std::vector<Component*> components;
