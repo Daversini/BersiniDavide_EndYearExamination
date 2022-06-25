@@ -1,5 +1,9 @@
-#include "MyEngine/Utils/pch.h"
+#include <MyEngine/Utils/pch.h>
+
 #include "MyEngine/Core/Application.h"
+
+#include "MyEngine/Scene/Components/Component.h"
+#include "MyEngine/Scene/GameObjects/Area2D.h"
 
 namespace MyEngine {
 
@@ -103,16 +107,22 @@ namespace MyEngine {
 
 	void Application::fixedUpdate()
 	{
-		std::cout << "\nFIXED UPDATE\n";
-
 		trackFPS();
+
+		for (auto item : allEntities)
+		{
+			if (item->is_active && item->tickEnabled()) item->onFixedUpdate(deltaTime);
+		}
 	}
 
 	void Application::update()
 	{
 		m_layer->onUpdate(deltaTime);
 
-		//TODO
+		for (GameObject* item : allEntities)
+		{
+			if (item->is_active && item->tickEnabled()) item->onUpdate(deltaTime);
+		}
 	}
 
 	void Application::render()
@@ -120,6 +130,16 @@ namespace MyEngine {
 		m_Window->clear(sf::Color::Black);
 
 		m_Window->draw(windowTextFPS);
+
+		for each (auto item in allEntities)
+		{
+			const auto components = item->getComponents<RectTransform>();
+
+			for each (auto rend in components)
+			{
+				m_Window->draw(*rend->getTransform());
+			}
+		}
 
 		m_Window->display();
 	}

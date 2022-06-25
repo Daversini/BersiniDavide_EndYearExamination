@@ -10,8 +10,13 @@
 #include "MyEngine/Scene/Object.h"
 #include "MyEngine/Scene/ITickable.h"
 
+// Components
 #include "MyEngine/Scene/Components/Component.h"
+#include "MyEngine/Scene/Components/RectTransform.h"
+#include "MyEngine/Scene/Components/Renderer2D.h"
 
+// Game Objects
 #include "MyEngine/Scene/GameObjects/GameObject.h"
+#include "MyEngine/Scene/GameObjects/Area2D.h"
 
 #endif // !MYENGINE_H

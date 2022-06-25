@@ -11,9 +11,21 @@ namespace MyEngine {
 		friend class Application;
 	public:
 		Renderer2D();
+		/// <summary>
+		/// Explicit Renderer2D constructor
+		/// </summary>
+		/// <param name="sourcePath">Texture source path</param>
+		/// <param name="smooth">Texture smooth boolean</param>
+		/// <param name="repeat">Texture repeat boolean</param>
 		explicit Renderer2D(std::string sourcePath, bool smooth, bool repeat);
 		~Renderer2D() override;
 
+		/// <summary>
+		/// Set a source path to a specific texture owner
+		/// </summary>
+		/// <param name="sourcePath">Texture source path</param>
+		/// <param name="smooth">Texture smooth boolean</param>
+		/// <param name="repeat">Texture repeat boolean</param>
 		void setTextureSource(std::string sourcePath, bool smooth, bool repeat);
 
 	private:

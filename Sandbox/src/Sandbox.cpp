@@ -1,4 +1,3 @@
-#include <MyEngine.h>
 #include <MyEngine/Core/EntryPoint.h>
 
 #include "SandboxLayer.h"

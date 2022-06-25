@@ -33,13 +33,13 @@ namespace MyEngine {
 		/// Checks if object is currently active
 		/// </summary>
 		/// <returns>is active boolean</returns>
-		bool has_activity()const { return is_active; }
+		bool hasActivity()const { return is_active; }
 
 		/// <summary>
 		/// Get an object name
 		/// </summary>
 		/// <returns>object name</returns>
-		std::string get_name()const { return name; }
+		std::string getName()const { return name; }
 
 	protected:
 		bool is_active;
