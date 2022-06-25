@@ -1,6 +1,7 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
+#include <MyEngine/Utils/ProjectExport.h>
 #include <MyEngine/Utils/pch.h>
 
 #include "MyEngine/Scene/Components/Component.h"
@@ -11,7 +12,7 @@ namespace MyEngine {
 
 	class Component;
 
-	class GameObject : public MyEngine::Object, public MyEngine::ITickable
+	class MYENGINEAPI GameObject : public MyEngine::Object, public MyEngine::ITickable
 	{
 		friend class Application;
 	public:

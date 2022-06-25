@@ -1,6 +1,6 @@
 #include <MyEngine/Utils/pch.h>
 
-#include "MyEngine/Core/Layer.h";
+#include "MyEngine/Core/Layer.h"
 
 namespace MyEngine {
 

@@ -1,12 +1,14 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
+#include <MyEngine/Utils/ProjectExport.h>
+
 #include "MyEngine/Scene/Object.h"
 #include "MyEngine/Scene/ITickable.h"
 
 namespace MyEngine {
 
-	class Component : public MyEngine::Object, public MyEngine::ITickable
+	class MYENGINEAPI Component : public MyEngine::Object, public MyEngine::ITickable
 	{
 		friend class GameObject;
 	public:

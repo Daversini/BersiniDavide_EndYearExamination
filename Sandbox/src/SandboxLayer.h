@@ -9,11 +9,15 @@ public:
 	SandboxLayer();
 	~SandboxLayer() {}
 
-	virtual void onAttach() override;
+	virtual std::vector<MyEngine::GameObject*> onAttach() override;
 	virtual void onDetach() override;
 
 	void onUpdate(float deltaTime) override;
 	void onEvent() override;
+
+private:
+	std::vector<MyEngine::GameObject*> allEntities;
+	std::string resourcesPath = "res/textures/";
 };
 
 #endif // !SANDBOX_LAYER_H

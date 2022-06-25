@@ -6,11 +6,16 @@ SandboxLayer::SandboxLayer()
 	: Layer("Sandbox")
 {}
 
-void SandboxLayer::onAttach()
+std::vector<MyEngine::GameObject*> SandboxLayer::onAttach()
 {
 	std::cout << "\n\nStarting Game...\n\n";
 
-	//TODO: Return allEntities
+	auto background = new MyEngine::Sprite();
+	background->renderer->setTextureSource("resources/textures/AOT-background.jpg", true, true);
+	background->rectangleTransform->setScale(1920, 1080);
+	allEntities.push_back(background);
+
+	return allEntities;
 }
 
 void SandboxLayer::onDetach()

@@ -1,12 +1,15 @@
 #ifndef RENDERER2D_H
 #define RENDERER2D_H
 
+#include <MyEngine/Utils/ProjectExport.h>
+
+#include <SFML/Graphics.hpp>
+
 #include "MyEngine/Scene/Components/Component.h"
-#include "SFML/Graphics.hpp"
 
 namespace MyEngine {
 
-	class Renderer2D : public Component
+	class MYENGINEAPI Renderer2D : public MyEngine::Component
 	{
 		friend class Application;
 	public:

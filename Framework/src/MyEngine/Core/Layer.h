@@ -1,7 +1,10 @@
 #ifndef LAYER_H
 #define LAYER_H
 
+#include <MyEngine/Utils/pch.h>
+
 #include "MyEngine/Utils/ProjectExport.h"
+#include "MyEngine/Scene/GameObjects/GameObject.h"
 
 namespace MyEngine {
 	
@@ -11,7 +14,7 @@ namespace MyEngine {
 		Layer(const char* name = "Layer");
 		virtual ~Layer() = default;
 
-		virtual void onAttach() {}
+		virtual std::vector<GameObject*> onAttach() = 0;
 		virtual void onDetach() {}
 		virtual void onUpdate(float deltaTime) {}
 		virtual void onEvent() {}

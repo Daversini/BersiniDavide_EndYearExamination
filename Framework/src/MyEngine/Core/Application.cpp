@@ -3,7 +3,10 @@
 #include "MyEngine/Core/Application.h"
 
 #include "MyEngine/Scene/Components/Component.h"
+#include "MyEngine/Scene/Components/Renderer2D.h"
+
 #include "MyEngine/Scene/GameObjects/Area2D.h"
+#include "MyEngine/Scene/GameObjects/Sprite.h"
 
 namespace MyEngine {
 
@@ -28,24 +31,16 @@ namespace MyEngine {
 	void Application::pushLayer(Layer* layer)
 	{
 		m_layer = layer;
-		layer->onAttach();
+		allEntities = layer->onAttach();
 	}
 
 	void Application::initialize()
 	{
 		createWindow();
 
-		if (!font.loadFromFile("../Framework/res/arial.ttf"))
-		{
-			if (!font.loadFromFile("arial.ttf"))
-			{
-				std::cout << "Failed to load font!\n";
-				system("pause");
-			}
-		}
-
+		font.loadFromFile("resources/fonts/arial.ttf");
 		windowTextFPS.setFont(font);
-		windowTextFPS.setCharacterSize(24);
+		windowTextFPS.setCharacterSize(30);
 		windowTextFPS.setFillColor(sf::Color::White);
 		windowTextFPS.move(10.0f, 10.0f);
 	}
@@ -129,8 +124,6 @@ namespace MyEngine {
 	{
 		m_Window->clear(sf::Color::Black);
 
-		m_Window->draw(windowTextFPS);
-
 		for each (auto item in allEntities)
 		{
 			const auto components = item->getComponents<RectTransform>();
@@ -140,6 +133,8 @@ namespace MyEngine {
 				m_Window->draw(*rend->getTransform());
 			}
 		}
+
+		m_Window->draw(windowTextFPS);
 
 		m_Window->display();
 	}

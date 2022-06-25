@@ -18,5 +18,6 @@
 // Game Objects
 #include "MyEngine/Scene/GameObjects/GameObject.h"
 #include "MyEngine/Scene/GameObjects/Area2D.h"
+#include "MyEngine/Scene/GameObjects/Sprite.h"
 
 #endif // !MYENGINE_H

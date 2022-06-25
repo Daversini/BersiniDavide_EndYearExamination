@@ -1,5 +1,7 @@
 include "premake5-Dependencies.lua"
 
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
 workspace "BersiniDavide_EndYearExamination"
     location "../"
     architecture "x86_64"
@@ -11,8 +13,6 @@ workspace "BersiniDavide_EndYearExamination"
         "Debug",
         "Release"
     }
-
-outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 include "../Framework"
 include "../Sandbox"

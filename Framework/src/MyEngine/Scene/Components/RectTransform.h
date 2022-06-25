@@ -1,6 +1,8 @@
 #ifndef RECTTRANSFORM_H
 #define RECTTRANSFORM_H
 
+#include <MyEngine/Utils/ProjectExport.h>
+
 #include <MyEngine/Scene/Components/Component.h>
 #include <SFML/Graphics.hpp>
 
@@ -9,7 +11,7 @@ namespace MyEngine {
 	/// <summary>
 	/// Represents a rectangle portion of scape in the viewport
 	/// </summary>
-	class RectTransform : public Component
+	class MYENGINEAPI RectTransform : public MyEngine::Component
 	{
 		friend class Application;
 	public:

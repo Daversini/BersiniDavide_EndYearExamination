@@ -1,12 +1,14 @@
 #ifndef AREA2D_H
 #define AREA2D_H
 
+#include <MyEngine/Utils/ProjectExport.h>
+
 #include <MyEngine/Scene/GameObjects/GameObject.h>
 #include <MyEngine/Scene/Components/RectTransform.h>
 
 namespace MyEngine {
 
-	class Area2D : public GameObject
+	class MYENGINEAPI Area2D : public MyEngine::GameObject
 	{
 	public:
 		Area2D();
