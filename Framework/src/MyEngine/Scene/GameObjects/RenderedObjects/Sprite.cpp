@@ -1,6 +1,6 @@
 #include <MyEngine/Utils/pch.h>
 
-#include "MyEngine/Scene/GameObjects/Sprite.h"
+#include "MyEngine/Scene/GameObjects/RenderedObjects/Sprite.h"
 
 namespace MyEngine {
 

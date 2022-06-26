@@ -3,10 +3,10 @@
 #include "MyEngine/Core/Application.h"
 
 #include "MyEngine/Scene/Components/Component.h"
-#include "MyEngine/Scene/Components/Renderer2D.h"
+#include "MyEngine/Scene/Components/RenderingComponents/Renderer2D.h"
 
 #include "MyEngine/Scene/GameObjects/Area2D.h"
-#include "MyEngine/Scene/GameObjects/Sprite.h"
+#include "MyEngine/Scene/GameObjects/RenderedObjects/Sprite.h"
 
 namespace MyEngine {
 

@@ -1,6 +1,6 @@
 #include <MyEngine/Utils/pch.h>
 
-#include "MyEngine/Scene/Components/Renderer2D.h"
+#include "MyEngine/Scene/Components/RenderingComponents/Renderer2D.h"
 #include "MyEngine/Scene/GameObjects/Area2D.h"
 
 namespace MyEngine {
