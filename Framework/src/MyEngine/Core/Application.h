@@ -16,6 +16,7 @@ namespace MyEngine {
 
 	class MYENGINEAPI Application
 	{
+		friend int ::main();
 	public:
 		/// <summary>
 		/// Application constructor
@@ -116,7 +117,6 @@ namespace MyEngine {
 
 		static Application* m_istance;
 		Layer* m_layer;
-		friend int ::main();
 		std::vector<GameObject*> allEntities;
 	};
 
