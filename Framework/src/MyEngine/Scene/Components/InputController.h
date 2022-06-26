@@ -31,7 +31,6 @@ namespace MyEngine {
 		bool rightMovement;
 		float XAxis, YAxis;
 	};
-
 }
 
 #endif // !INPUTCONTROLLER_H
