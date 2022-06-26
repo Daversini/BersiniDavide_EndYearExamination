@@ -2,9 +2,9 @@
 #define RECTTRANSFORM_H
 
 #include <MyEngine/Utils/ProjectExport.h>
-
-#include <MyEngine/Scene/Components/Component.h>
 #include <SFML/Graphics.hpp>
+
+#include "MyEngine/Scene/Components/Component.h"
 
 namespace MyEngine {
 	

@@ -1,13 +1,15 @@
 #ifndef MOVEMENTCOMPONENT_H
 #define MOVEMENTCOMPONENT_H
 
+#include <MyEngine/Utils/ProjectExport.h>
+
 #include "MyEngine/Scene/Components/Component.h"
 #include "MyEngine/Scene/Components/RectTransform.h"
 #include "MyEngine/Scene/Components/InputController.h"
 
 namespace MyEngine {
 
-	class MovementComponent : public MyEngine::Component
+	class MYENGINEAPI MovementComponent : public MyEngine::Component
 	{
 	public:
 		MovementComponent();

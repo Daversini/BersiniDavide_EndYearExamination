@@ -1,13 +1,14 @@
 #ifndef INPUTCONTROLLER_H
-#define INPUTCONTROLLER
+#define INPUTCONTROLLER_H
 
+#include <MyEngine/Utils/ProjectExport.h>
 #include <SFML/Graphics.hpp>
 
 #include "MyEngine/Scene/Components/Component.h"
 
 namespace MyEngine {
 
-	class InputController : public MyEngine::Component
+	class MYENGINEAPI InputController : public MyEngine::Component
 	{
 		friend class Application;
 		friend class MovementComponent;

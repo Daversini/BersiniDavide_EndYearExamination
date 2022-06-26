@@ -17,7 +17,7 @@ public:
 
 private:
 	std::vector<MyEngine::GameObject*> allEntities;
-	std::string resourcesPath = "res/textures/";
+	std::string resourcesPath = "resources/textures/";
 };
 
 #endif // !SANDBOX_LAYER_H

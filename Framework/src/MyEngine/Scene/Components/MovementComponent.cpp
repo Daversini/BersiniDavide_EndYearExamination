@@ -1,46 +1,50 @@
-#include "MyEngine/Utils/pch.h"
-#include "MovementComponent.h"
+#include <MyEngine/Utils/pch.h>
 
-MyEngine::MovementComponent::MovementComponent() : Component("Movement Component")
-{
-	speed = 10;
-	controller = nullptr;
-	transform = nullptr;
-}
+#include "MyEngine/Scene/Components/MovementComponent.h"
 
-MyEngine::MovementComponent::~MovementComponent()
-{
-	delete controller;
-	delete transform;
-}
+namespace MyEngine {
 
-sf::Vector2f MyEngine::MovementComponent::getVelocity() const
-{
-	auto motion = controller->getAxisVector();
-	return { motion.x * speed, motion.y * speed };
-}
+	MovementComponent::MovementComponent() : Component("Movement Component")
+	{
+		speed = 10;
+		controller = nullptr;
+		transform = nullptr;
+	}
 
-sf::Vector2f MyEngine::MovementComponent::getMotionVector() const
-{
-	const auto velocity = getVelocity();
-	const float lenght = sqrt(velocity.x * velocity.x + velocity.y * velocity.y);
+	MovementComponent::~MovementComponent()
+	{
+		delete controller;
+		delete transform;
+	}
 
-	if (lenght == 0.0f) return { 0,0 };
+	sf::Vector2f MovementComponent::getVelocity() const
+	{
+		auto motion = controller->getAxisVector();
+		return { motion.x * speed, motion.y * speed };
+	}
 
-	return { velocity.x / lenght, velocity.y / lenght };
-}
+	sf::Vector2f MovementComponent::getMotionVector() const
+	{
+		const auto velocity = getVelocity();
+		const float lenght = sqrt(velocity.x * velocity.x + velocity.y * velocity.y);
 
-void MyEngine::MovementComponent::onUpdate(const float deltaTime)
-{
-	if (!motionIsValid()) return;
+		if (lenght == 0.0f) return { 0,0 };
 
-	auto nextPosition = transform->getTransform()->getPosition() + sf::Vector2f(getMotionVector().x * speed * deltaTime, getMotionVector().y * speed * deltaTime);
+		return { velocity.x / lenght, velocity.y / lenght };
+	}
 
-	std::cout << "New pos: " << nextPosition.x << ", " << nextPosition.y << "\n";
-	transform->setPosition(nextPosition.x, nextPosition.y);
-}
+	void MovementComponent::onUpdate(const float deltaTime)
+	{
+		if (!motionIsValid()) return;
 
-void MyEngine::MovementComponent::onFixedUpdate(const float deltaTime)
-{
+		auto nextPosition = transform->getTransform()->getPosition() + sf::Vector2f(getMotionVector().x * speed * deltaTime, getMotionVector().y * speed * deltaTime);
 
+		std::cout << "New pos: " << nextPosition.x << ", " << nextPosition.y << "\n";
+		transform->setPosition(nextPosition.x, nextPosition.y);
+	}
+
+	void MovementComponent::onFixedUpdate(const float deltaTime)
+	{
+
+	}
 }

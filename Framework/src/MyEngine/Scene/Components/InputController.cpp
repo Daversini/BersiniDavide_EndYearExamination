@@ -16,6 +16,8 @@ namespace MyEngine {
 
 	void InputController::onUpdate(const float deltaTime)
 	{
+		Component::onUpdate(deltaTime);
+
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
 			forwardMovement = true;

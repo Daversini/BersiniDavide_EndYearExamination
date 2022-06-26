@@ -11,9 +11,15 @@ std::vector<MyEngine::GameObject*> SandboxLayer::onAttach()
 	std::cout << "\n\nStarting Game...\n\n";
 
 	auto background = new MyEngine::Sprite();
-	background->renderer->setTextureSource("resources/textures/AOT-background.jpg", true, true);
+	background->renderer->setTextureSource(resourcesPath + "AOT-background.jpg", true, true);
 	background->rectangleTransform->setScale(1920, 1080);
 	allEntities.push_back(background);
+
+	const auto player = new MyEngine::Character();
+	player->renderer->setTextureSource(resourcesPath + "Mikasa.png", true, false);
+	player->rectangleTransform->setScale(250, 250);
+	player->rectangleTransform->setPosition(960 - 125, 540 - 125);
+	allEntities.push_back(player);
 
 	return allEntities;
 }
