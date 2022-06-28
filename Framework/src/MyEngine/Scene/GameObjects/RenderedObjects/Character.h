@@ -5,8 +5,8 @@
 
 #include "MyEngine/Scene/GameObjects/RenderedObjects/Sprite.h"
 
-#include "MyEngine/Scene/Components/InputController.h"
-#include "MyEngine/Scene/Components/MovementComponent.h"
+#include "MyEngine/Scene/Components/CharacterComponents/InputController.h"
+#include "MyEngine/Scene/Components/CharacterComponents/MovementComponent.h"
 
 namespace MyEngine {
 	

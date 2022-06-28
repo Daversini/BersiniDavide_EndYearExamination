@@ -1,6 +1,6 @@
 #include <MyEngine/Utils/pch.h>
 
-#include "MyEngine/Scene/Components/InputController.h"
+#include "MyEngine/Scene/Components/CharacterComponents/InputController.h"
 
 namespace MyEngine {
 
@@ -46,7 +46,7 @@ namespace MyEngine {
 		}
 		else
 		{
-			forwardMovement = false;
+			rightMovement = false;
 			XAxis = 0;
 		}
 	}

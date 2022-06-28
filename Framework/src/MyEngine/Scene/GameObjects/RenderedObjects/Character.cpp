@@ -1,6 +1,6 @@
 #include <MyEngine/Utils/pch.h>
 
-#include "MyEngine/Scene/GameObjects/Character.h"
+#include "MyEngine/Scene/GameObjects/RenderedObjects/Character.h"
 
 namespace MyEngine {
 

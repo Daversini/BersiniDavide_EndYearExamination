@@ -5,7 +5,7 @@
 
 #include "MyEngine/Scene/Components/Component.h"
 #include "MyEngine/Scene/Components/RectTransform.h"
-#include "MyEngine/Scene/Components/InputController.h"
+#include "MyEngine/Scene/Components/CharacterComponents/InputController.h"
 
 namespace MyEngine {
 

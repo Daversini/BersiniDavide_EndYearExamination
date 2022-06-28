@@ -8,8 +8,8 @@ MyEngine::RectTransform::RectTransform() : Component("Rectangle Transform")
 	disable();
 
 	position = sf::Vector2f(1920/2, 1080/2);
-	rotation = 0;
 	scale = sf::Vector2f(1, 1);
+	rotation = 0;
 
 	rectangleTransform = new sf::RectangleShape(scale);
 }

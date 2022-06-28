@@ -17,8 +17,9 @@ std::vector<MyEngine::GameObject*> SandboxLayer::onAttach()
 
 	const auto player = new MyEngine::Character();
 	player->renderer->setTextureSource(resourcesPath + "Mikasa.png", true, false);
-	player->rectangleTransform->setScale(250, 250);
-	player->rectangleTransform->setPosition(960 - 125, 540 - 125);
+	player->movementComponent->speed = 300;
+	player->rectangleTransform->setScale(400, 400);
+	player->rectangleTransform->setPosition(1920 / 2 - 400 / 2, 1080 / 2 - 400 / 2);
 	allEntities.push_back(player);
 
 	return allEntities;

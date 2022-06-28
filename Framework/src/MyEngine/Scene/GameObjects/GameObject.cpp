@@ -24,8 +24,7 @@ namespace MyEngine {
 
 	void GameObject::removeComponent(Component* component)
 	{
-		//TODO: Fix component erase
-		//components.erase();
+		components.erase(std::remove(components.begin(), components.end(), component), components.end());
 	}
 
 	void GameObject::onFixedUpdate(const float deltaTime)

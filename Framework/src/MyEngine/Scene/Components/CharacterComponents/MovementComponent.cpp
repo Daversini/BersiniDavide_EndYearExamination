@@ -1,6 +1,6 @@
 #include <MyEngine/Utils/pch.h>
 
-#include "MyEngine/Scene/Components/MovementComponent.h"
+#include "MyEngine/Scene/Components/CharacterComponents/MovementComponent.h"
 
 namespace MyEngine {
 
