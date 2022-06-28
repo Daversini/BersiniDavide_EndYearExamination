@@ -49,8 +49,6 @@ namespace MyEngine {
 			forwardMovement = false;
 			XAxis = 0;
 		}
-
-		std::cout << "Axis: " << XAxis << ", " << YAxis << "\n";
 	}
 
 	void InputController::onFixedUpdate(const float deltaTime)

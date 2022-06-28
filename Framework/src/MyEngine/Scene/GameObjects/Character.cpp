@@ -15,15 +15,18 @@ namespace MyEngine {
 		movementComponent->speed = 120;
 		addComponent(movementComponent);
 	}
+
 	Character::~Character()
 	{
 		delete movementComponent;
 		delete inputController;
 	}
+
 	void Character::onUpdate(const float deltaTime)
 	{
 		Sprite::onUpdate(deltaTime);
 	}
+
 	void Character::onFixedUpdate(const float deltaTime)
 	{
 		Sprite::onFixedUpdate(deltaTime);

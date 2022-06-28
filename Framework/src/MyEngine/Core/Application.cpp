@@ -23,7 +23,8 @@ namespace MyEngine {
 		avgFPS(0),
 		movAvgAlphaFPS(0.4f),
 		SEC_PER_FIXED_UPDATE(0.5),
-		fpsLimitEnabled(false)
+		fpsLimitEnabled(false),
+		m_layer(nullptr)
 	{
 		initialize();
 	}
@@ -36,6 +37,9 @@ namespace MyEngine {
 
 	void Application::initialize()
 	{
+		std::cout << "Starting Application...\n\n";
+		std::cout << "Window settings:\n" << "Width: " << windowWidth << "\n" << "Height: " << windowHeight << "\n\n";
+
 		createWindow();
 
 		font.loadFromFile("resources/fonts/arial.ttf");
@@ -77,7 +81,7 @@ namespace MyEngine {
 				sf::sleep(sf::seconds((1.0f / maxFPS)));
 		}
 
-		m_layer->onDetach();
+		if (m_layer != nullptr) m_layer->onDetach();
 	}
 
 	void Application::updateGameTime()
@@ -112,7 +116,7 @@ namespace MyEngine {
 
 	void Application::update()
 	{
-		m_layer->onUpdate(deltaTime);
+		if (m_layer != nullptr) m_layer->onUpdate(deltaTime);
 
 		for (GameObject* item : allEntities)
 		{

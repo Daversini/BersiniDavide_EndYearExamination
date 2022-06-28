@@ -43,7 +43,7 @@ goto :errorHandler
 color 06
 cls
 echo.
-premake5 vs%VSVersion%
+premake5.exe vs%VSVersion%
 echo.
 echo Solution built for Visual Studio %VSVersion%^^!
 echo.
