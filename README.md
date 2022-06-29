@@ -32,16 +32,17 @@ In order to generate the **documentation** you need to have installed [**Doxygen
 <br>
 
 ## **How to install**
-First of all, clone this [**Repository**](https://github.com/Daversini/BersiniDavide_EndYearExamination).
+1. First of all, clone this [**Repository**](https://github.com/Daversini/BersiniDavide_EndYearExamination). (Note that you have to clone it into a path **WITHOUT** spaces, otherwise the [Visual Studio Post build copy command will fail](https://stackoverflow.com/a/44393723/17818428))
 <br>
-Then run the `GenSolution.bat` file under the `/Scripts` folder and select a **Visual Studio** version to generate the **Solution**.
+2. Then run the `GenSolution.bat` file inside the `/Scripts` folder and select a **Visual Studio** version to generate the **Solution**.
 <br>
-Open the **Solution** and try to build the **Framework**.
+3. Open the **Solution** and try to build the **Framework**.
 <br>
+
 If there are no errors, you can now [**start to build your own Sandbox!**](#getting-started)
 <br>
 
-> NB: If you want to generate the **documentation**, run `GenDocumentation.bat` file under the `/Scripts` folder. It will automatically open `index.html` under `/Docs/html`
+> NB: If you want to generate the **documentation**, run `GenDocumentation.bat` file inside the `/Scripts` folder. It will automatically open `index.html` under `/Docs/html`
 
 <br>
 
