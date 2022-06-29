@@ -32,7 +32,7 @@ In order to generate the **documentation** you need to have installed [**Doxygen
 <br>
 
 ## **How to install**
-> First of all, clone this [**Repository**](https://github.com/Daversini/BersiniDavide_EndYearExamination).
+First of all, clone this [**Repository**](https://github.com/Daversini/BersiniDavide_EndYearExamination).
 <br>
 Then run the `GenSolution.bat` file under the `/Scripts` folder and select a **Visual Studio** version to generate the **Solution**.
 <br>
@@ -47,7 +47,7 @@ If there are no errors, you can now [**start to build your own Sandbox!**](#gett
 
 ## **Currently supported Functionalities**
 
-At the moment the Framework supports the creation of simple `Game Objects` (as a `Sprite`, or a `Character`) and the possibility to attach different `components` to them.
+At the moment the Framework supports the creation of simple **Game Objects** (as a **Sprite**, or a **Character**) and the possibility to attach different **Components** to them.
 
 ### As for `Game Objects`:
 - #### **`Area2D`**
@@ -120,7 +120,8 @@ MyEngine::Sprite* background = new MyEngine::Sprite();  // Creation of a Sprite 
 
 Now you need to define custom properties for the **Game Object**
 ```cpp
-background->renderer->setTextureSource("resources/textures/AOT-background.jpg", true, true);    // Make sure that the texture path is correct!
+// Make sure that the texture path is correct!
+background->renderer->setTextureSource("resources/textures/AOT-background.jpg", true, true);
 background->rectangleTransform->setScale(1920, 1080);
 ```
 
