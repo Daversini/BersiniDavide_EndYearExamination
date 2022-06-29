@@ -1,5 +1,5 @@
 <p align = "center">
-    <img src="Sandbox/res/icon.ico" alt="icon" width="200">
+    <img src="Sandbox/res/icon.ico" alt="icon" width="300">
 </p>
 
 <br>
@@ -14,7 +14,7 @@ A simple **SFML-ready Framework** that supports the creation of game objects wit
 # **Table of Contents** 📍
 - [**Requirements**](#requirements) 🏷️
 
-- [**How to install**](#how-to-install-⚙️) ⚙️
+- [**How to install**](#how-to-install) ⚙️
 
 - [**Currently supported functionalities**](#currently-supported-functionalities)
 
@@ -26,7 +26,7 @@ A simple **SFML-ready Framework** that supports the creation of game objects wit
 
 <br>
 
-## **Requirements** 🏷️
+## **Requirements**
 To open and build the **Solution** you need **Visual Studio** installed on your computer ([**Reccomended Visual Studio 2019**](https://visualstudio.microsoft.com/vs/older-downloads/)).
 <br>
 To run the executable you also need **OpenGL32** installed.
@@ -35,14 +35,14 @@ In order to generate the [**documentation**](#documentation) you need to have in
 
 <br>
 
-## **How to install** ⚙️
+## **How to install**
 > First of all, clone this [**Repository**](https://github.com/Daversini/BersiniDavide_EndYearExamination).
 <br>
-Then run the `GenSolution.bat` file under the `/Scripts` folder and select a **Visual Studio** version to generate the **Solution**.
+> Then run the `GenSolution.bat` file under the `/Scripts` folder and select a **Visual Studio** version to generate the **Solution**.
 <br>
-Open the **Solution** and try to build the **Framework**.
+> Open the **Solution** and try to build the **Framework**.
 <br>
-If there are no errors, you can now [**start to build your own Sandbox!**](#get-started)
+> If there are no errors, you can now [**start to build your own Sandbox!**](#get-started)
 
 <br>
 
