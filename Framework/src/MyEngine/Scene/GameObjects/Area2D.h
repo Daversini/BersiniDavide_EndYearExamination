@@ -9,7 +9,7 @@
 namespace MyEngine {
 
 	/// <summary>
-	/// Defines a GameObject with a 2D Area in the world location
+	/// Defines a GameObject with a 2D Area controlled by a RectTransform
 	/// </summary>
 	class MYENGINEAPI Area2D : public MyEngine::GameObject
 	{
