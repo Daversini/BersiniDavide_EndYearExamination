@@ -8,6 +8,9 @@
 
 namespace MyEngine {
 
+	/// <summary>
+	/// Defines a Component capable of receiving keyboard inputs from a Character
+	/// </summary>
 	class MYENGINEAPI InputController : public MyEngine::Component
 	{
 		friend class Application;

@@ -12,12 +12,13 @@ public:
 	virtual std::vector<MyEngine::GameObject*> onAttach() override;
 	virtual void onDetach() override;
 
-	void onUpdate(float deltaTime) override;
+	void onUpdate(const float deltaTime) override;
 	void onEvent() override;
 
 private:
 	std::vector<MyEngine::GameObject*> allEntities;
-	std::string resourcesPath = "resources/textures/";
+	MyEngine::Sprite* background = new MyEngine::Sprite();
+	MyEngine::Character* player = new MyEngine::Character();
 };
 
 #endif // !SANDBOX_LAYER_H

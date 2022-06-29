@@ -37,9 +37,8 @@ namespace MyEngine {
 	{
 		if (!motionIsValid()) return;
 
-		auto nextPosition = transform->getTransform()->getPosition() + sf::Vector2f(getMotionVector().x * speed * deltaTime, getMotionVector().y * speed * deltaTime);
+		nextPosition = transform->getTransform()->getPosition() + sf::Vector2f(getMotionVector().x * speed * deltaTime, getMotionVector().y * speed * deltaTime);
 
-		std::cout << "New pos: " << nextPosition.x << ", " << nextPosition.y << "\n";
 		transform->setPosition(nextPosition.x, nextPosition.y);
 	}
 

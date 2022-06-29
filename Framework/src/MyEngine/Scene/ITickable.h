@@ -4,7 +4,7 @@
 namespace MyEngine {
 
 	/// <summary>
-	/// Interface which defines a tickable object
+	/// Interface which defines a tickable Object
 	/// </summary>
 	class ITickable
 	{

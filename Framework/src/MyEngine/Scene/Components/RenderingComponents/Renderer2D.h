@@ -9,6 +9,9 @@
 
 namespace MyEngine {
 
+	/// <summary>
+	/// Defines a Component capable of giving 2D rendering to a GameObject
+	/// </summary>
 	class MYENGINEAPI Renderer2D : public MyEngine::Component
 	{
 		friend class Application;

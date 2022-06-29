@@ -3,11 +3,14 @@
 
 #include <MyEngine/Utils/ProjectExport.h>
 
-#include <MyEngine/Scene/GameObjects/GameObject.h>
-#include <MyEngine/Scene/Components/RectTransform.h>
+#include "MyEngine/Scene/GameObjects/GameObject.h"
+#include "MyEngine/Scene/Components/RectTransform.h"
 
 namespace MyEngine {
 
+	/// <summary>
+	/// Defines a GameObject with a 2D Area in the world location
+	/// </summary>
 	class MYENGINEAPI Area2D : public MyEngine::GameObject
 	{
 	public:

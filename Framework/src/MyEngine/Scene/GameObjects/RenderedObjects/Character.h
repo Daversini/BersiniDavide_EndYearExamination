@@ -10,6 +10,9 @@
 
 namespace MyEngine {
 	
+	/// <summary>
+	/// Defines a Sprite that can be controlled with an InputController and a MovementComponent
+	/// </summary>
 	class MYENGINEAPI Character : public MyEngine::Sprite
 	{
 		friend class Application;

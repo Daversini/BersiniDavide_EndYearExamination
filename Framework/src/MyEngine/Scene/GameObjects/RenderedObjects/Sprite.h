@@ -8,6 +8,9 @@
 
 namespace MyEngine {
 
+	/// <summary>
+	/// Defines an Area2D with a Renderer2D component
+	/// </summary>
 	class MYENGINEAPI Sprite : public MyEngine::Area2D
 	{
 	public:

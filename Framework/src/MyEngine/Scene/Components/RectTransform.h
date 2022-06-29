@@ -9,7 +9,7 @@
 namespace MyEngine {
 	
 	/// <summary>
-	/// Represents a rectangle portion of scape in the viewport
+	/// Defines a Component capable of giving a rectangle portion transform to a GameObject
 	/// </summary>
 	class MYENGINEAPI RectTransform : public MyEngine::Component
 	{

@@ -12,6 +12,9 @@ namespace MyEngine {
 
 	class Component;
 
+	/// <summary>
+	/// Defines an Object with attachable Components
+	/// </summary>
 	class MYENGINEAPI GameObject : public MyEngine::Object, public MyEngine::ITickable
 	{
 		friend class Application;

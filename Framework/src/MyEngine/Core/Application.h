@@ -14,6 +14,9 @@ int main();
 
 namespace MyEngine {
 
+	/// <summary>
+	/// Main Application class
+	/// </summary>
 	class MYENGINEAPI Application
 	{
 		friend int ::main();
@@ -26,7 +29,7 @@ namespace MyEngine {
 		/// <param name="title">Window title</param>
 		/// <param name="maxFPS">Max fps in game</param>
 		Application(float width, float height, const char* title);
-		virtual ~Application() {}
+		virtual ~Application() { delete m_Window; }
 
 	public:
 		/// <summary>
@@ -38,7 +41,7 @@ namespace MyEngine {
 		/// <summary>
 		/// Get application istance
 		/// </summary>
-		/// <returns>The application</returns>
+		/// <returns>The current application istance</returns>
 		static Application& Get() { return*m_istance; }
 
 		/// <summary>
@@ -47,8 +50,15 @@ namespace MyEngine {
 		/// <returns>Total frames</returns>
 		unsigned getFrameRate()const { return 1.0f / deltaTime; }
 
+		/// <summary>
+		/// Enable FPS Limit (default true)
+		/// </summary>
 		void enableFPSLimit() { fpsLimitEnabled = true; }
 
+		/// <summary>
+		/// Set application max FPS
+		/// </summary>
+		/// <param name="maxfps"></param>
 		void setMaxFPS(float maxfps) { maxFPS = maxfps; avgFPS = maxFPS; }
 
 	private:
@@ -68,7 +78,7 @@ namespace MyEngine {
 		void run();
 
 		/// <summary>
-		/// Calculates Game time at each tick
+		/// Updates application times at each tick
 		/// </summary>
 		void updateGameTime();
 
@@ -97,6 +107,11 @@ namespace MyEngine {
 		/// </summary>
 		void trackFPS();
 
+		/// <summary>
+		/// Manage application quit and layer callback
+		/// </summary>
+		void applicationQuit();
+
 	private:
 		// Game Window
 		sf::RenderWindow* m_Window;
@@ -112,7 +127,7 @@ namespace MyEngine {
 		float lag;
 		unsigned maxFPS, avgFPS;
 		float movAvgAlphaFPS;
-		float SEC_PER_FIXED_UPDATE;
+		float secPerFixedUpdate;
 		bool fpsLimitEnabled;
 
 		static Application* m_istance;

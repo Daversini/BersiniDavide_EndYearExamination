@@ -5,6 +5,9 @@
 
 namespace MyEngine {
 
+	/// <summary>
+	/// Defines a generic Object in the framework (GameObjects and Components)
+	/// </summary>
 	class Object
 	{
 	public:

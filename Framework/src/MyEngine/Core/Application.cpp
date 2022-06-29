@@ -22,7 +22,7 @@ namespace MyEngine {
 		maxFPS(0),
 		avgFPS(0),
 		movAvgAlphaFPS(0.4f),
-		SEC_PER_FIXED_UPDATE(0.5),
+		secPerFixedUpdate(0.5),
 		fpsLimitEnabled(false),
 		m_layer(nullptr)
 	{
@@ -38,15 +38,16 @@ namespace MyEngine {
 	void Application::initialize()
 	{
 		std::cout << "Starting Application...\n\n";
-		std::cout << "Window settings:\n" << "Width: " << windowWidth << "\n" << "Height: " << windowHeight << "\n\n";
+		std::cout << "Window settings:\n" << "Width: " << windowWidth << "\n" << "Height: " << windowHeight << "\n";
 
-		createWindow();
-
+		// FPS Counter
 		font.loadFromFile("resources/fonts/arial.ttf");
 		windowTextFPS.setFont(font);
 		windowTextFPS.setCharacterSize(30);
 		windowTextFPS.setFillColor(sf::Color::White);
 		windowTextFPS.move(10.0f, 10.0f);
+
+		createWindow();
 	}
 
 	void Application::createWindow()
@@ -68,10 +69,10 @@ namespace MyEngine {
 			updateGameTime();
 			processWindowEvents();
 
-			while (lag >= SEC_PER_FIXED_UPDATE)
+			while (lag >= secPerFixedUpdate)
 			{
 				fixedUpdate();
-				lag -= SEC_PER_FIXED_UPDATE;
+				lag -= secPerFixedUpdate;
 			}
 
 			update();
@@ -81,7 +82,7 @@ namespace MyEngine {
 				sf::sleep(sf::seconds((1.0f / maxFPS)));
 		}
 
-		if (m_layer != nullptr) m_layer->onDetach();
+		applicationQuit();
 	}
 
 	void Application::updateGameTime()
@@ -100,6 +101,10 @@ namespace MyEngine {
 			if (evt.type == sf::Event::EventType::Closed)
 			{
 				m_Window->close();
+			}
+			if (evt.type == sf::Event::Resized)
+			{
+				std::cout << "\nWindow resized!\n";
 			}
 		}
 	}
@@ -137,7 +142,6 @@ namespace MyEngine {
 				m_Window->draw(*rend->getTransform());
 			}
 		}
-
 		m_Window->draw(windowTextFPS);
 
 		m_Window->display();
@@ -145,14 +149,18 @@ namespace MyEngine {
 
 	void Application::trackFPS()
 	{
-		//std::cout << "Frames per sec:	" << getFrameRate() << "\n";
-		//std::cout << "Current Lag	" << lag << "\n";
-		//std::cout << "Delta Time:	" << deltaTime << "\n\n";
-
+		//Exponential weighted moving average algorithm: https://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average
 		avgFPS = movAvgAlphaFPS * avgFPS + (1.0 - movAvgAlphaFPS) * getFrameRate();
 
 		std::ostringstream FPSString;
 		FPSString << "FPS: " << avgFPS;
 		windowTextFPS.setString(FPSString.str());
+	}
+
+	void Application::applicationQuit()
+	{
+		if (m_layer != nullptr) m_layer->onDetach();
+
+		std::cout << "\n\nQuitting application...\n\n";
 	}
 }
