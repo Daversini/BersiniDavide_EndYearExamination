@@ -33,9 +33,9 @@ In order to generate the **documentation** you need to have installed [**Doxygen
 
 ## **How to install**
 1. First of all, clone this [**Repository**](https://github.com/Daversini/BersiniDavide_EndYearExamination). (Note that you have to clone it into a path **WITHOUT** spaces, otherwise the [Visual Studio Post build copy command will fail](https://stackoverflow.com/a/44393723/17818428))
-<br>
+
 2. Then run the `GenSolution.bat` file inside the `/Scripts` folder and select a **Visual Studio** version to generate the **Solution**.
-<br>
+
 3. Open the **Solution** and try to build the **Framework**.
 <br>
 
